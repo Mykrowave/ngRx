@@ -1,4 +1,5 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { UserAction, UserActionType } from './user.actions';
 
 export interface UserState {
   userNameMasked: boolean;
@@ -17,10 +18,10 @@ const getUserFeatureState = createFeatureSelector<UserState>('user');
 // Composed Selectors
 export const getUserNameMasked = createSelector(getUserFeatureState, u => u.userNameMasked);
 
-export function reducer(state = initialUserState, action): UserState {
+export function reducer(state = initialUserState, action: UserAction): UserState {
 
   switch (action.type) {
-    case 'TOGGLE_MASK_USERNAME':
+    case UserActionType.ToggleMaskUserName:
       return {
         ...state,
         userNameMasked: action.payload

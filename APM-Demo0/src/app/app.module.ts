@@ -19,6 +19,7 @@ import { StoreDevtoolsModule, StoreDevtoolsOptions } from '@ngrx/store-devtools'
 /* Feature Modules */
 import { UserModule } from './user/user.module';
 import { environment } from 'src/environments/environment.prod';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { environment } from 'src/environments/environment.prod';
     UserModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       name: 'Test Angular App',
@@ -43,4 +45,4 @@ import { environment } from 'src/environments/environment.prod';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

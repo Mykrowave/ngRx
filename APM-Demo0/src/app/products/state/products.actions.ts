@@ -11,6 +11,10 @@ export enum ProductActionType {
   LoadProducts = '[Product] Load Products',
   LoadProductsSuccess = '[Product] Load Products Success',
   LoadProductsFail = '[Product] Load Products Fail',
+  UpdateProduct = '[Product] Update Product',
+  UpdateProductSuccess = '[Product] Update Product Success',
+  UpdateProductFail = '[Product] Update Product Fail',
+
 }
 
 /* Action Creators */
@@ -42,6 +46,18 @@ export class LoadProductsFail implements Action {
   type = ProductActionType.LoadProductsFail;
   constructor(public payload: string) {}
 }
+export class UpdateProduct implements Action {
+  type = ProductActionType.UpdateProduct;
+  constructor(public payload: Product) {}
+}
+export class UpdateProductSuccess implements Action {
+  type = ProductActionType.UpdateProductSuccess;
+  constructor(public payload: Product) {}
+}
+export class UpdateProductFail implements Action {
+  type = ProductActionType.UpdateProductFail;
+  constructor(public payload: string) {}
+}
 
 /* Union Type */
 export type ProductAction = ToggleProductCode |
@@ -50,4 +66,7 @@ export type ProductAction = ToggleProductCode |
                             InitCurrentProduct |
                             LoadProducts |
                             LoadProductsSuccess |
-                            LoadProductsFail;
+                            LoadProductsFail |
+                            UpdateProduct |
+                            UpdateProductSuccess |
+                            UpdateProductFail;
